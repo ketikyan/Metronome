@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "1"; ObjectID = "4LQ-pq-qLg"; */
+"4LQ-pq-qLg.text" = "1";
+
+/* Class = "UILabel"; text = "BPM"; ObjectID = "AQU-07-Dgv"; */
+"AQU-07-Dgv.text" = "BPM";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "PsW-zB-Eh6"; */
+"PsW-zB-Eh6.text" = "1";
+
+/* Class = "UILabel"; text = "START!"; ObjectID = "SF0-5L-pUI"; */
+"SF0-5L-pUI.text" = "START!";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "Sv8-dl-O7C"; */
+"Sv8-dl-O7C.normalTitle" = "-";
+
+/* Class = "UILabel"; text = "Magic"; ObjectID = "rm0-IP-Vua"; */
+"rm0-IP-Vua.text" = "Magic";
+
+/* Class = "UIButton"; normalTitle = "Metronome"; ObjectID = "wcB-y5-Dna"; */
+"wcB-y5-Dna.normalTitle" = "Metronome";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "zNv-Nx-8dz"; */
+"zNv-Nx-8dz.normalTitle" = "+";
