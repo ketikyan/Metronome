@@ -61,26 +61,45 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     @IBOutlet weak var bpmLabel: UILabel!
     @IBOutlet weak var sliderValue: UISlider!
+    
+    func timeCall() {
+        time?.invalidate()
+        time = Timer.scheduledTimer(timeInterval: ticking, target: self, selector: #selector(animateImage), userInfo: nil, repeats: true)
+    }
+    
     @IBAction func plusBeat(_ sender: UIButton) {
-        beatsPerMinute += 1
-        bpmLabel.text = "\(beatsPerMinute + 1)"
-        sliderValue.value = Float(beatsPerMinute)
+        if beatsPerMinute != 120 {
+            beatsPerMinute += 1
+            bpmLabel.text = "\(beatsPerMinute + 1)"
+            sliderValue.value = Float(beatsPerMinute)
+            ticking = 60 / Double(beatsPerMinute)
+            if titleLabel.text == "STOP!" {
+                timeCall()
+            }
+        }
     }
     
     @IBAction func minusBeat(_ sender: UIButton) {
-        beatsPerMinute -= 1
-        bpmLabel.text = "\(beatsPerMinute - 1)"
-        sliderValue.value = Float(beatsPerMinute)
+        if beatsPerMinute > 2 {
+            beatsPerMinute -= 1
+            bpmLabel.text = "\(beatsPerMinute - 1)"
+            sliderValue.value = Float(beatsPerMinute)
+            ticking = 60 / Double(beatsPerMinute)
+            if titleLabel.text == "STOP!" {
+                timeCall()
+            }
+        }
     }
 
     @IBAction func beatsSlider(_ sender: UISlider, forEvent event: UIEvent) {
             bpmLabel.text = "\(Int(sender.value))"
             beatsPerMinute = Int(sender.value)
             ticking = 60 / Double(beatsPerMinute)
-            time?.invalidate()
-            time = Timer.scheduledTimer(timeInterval: ticking, target: self, selector: #selector(animateImage), userInfo: nil, repeats: true)
-
+            if titleLabel.text == "STOP!" {
+                timeCall()
+            }
     }
+
 
 
     @IBOutlet weak var arrowImage: UIImageView!
@@ -90,7 +109,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         switch titleLabel.text {
             case "START!":
-                time = Timer.scheduledTimer(timeInterval: ticking, target: self, selector: #selector(animateImage), userInfo: nil, repeats: true)
+                timeCall()
                 titleLabel.text = "STOP!"
                 
             case "STOP!":
@@ -157,4 +176,5 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         player.play()
     }
 }
+
 
