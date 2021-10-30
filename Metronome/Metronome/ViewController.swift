@@ -70,7 +70,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func plusBeat(_ sender: UIButton) {
         if beatsPerMinute != 120 {
             beatsPerMinute += 1
-            bpmLabel.text = "\(beatsPerMinute + 1)"
+            bpmLabel.text = "\(beatsPerMinute)"
             sliderValue.value = Float(beatsPerMinute)
             ticking = 60 / Double(beatsPerMinute)
             if titleLabel.text == "STOP!" {
@@ -80,9 +80,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func minusBeat(_ sender: UIButton) {
-        if beatsPerMinute > 2 {
+        if beatsPerMinute > 1 {
             beatsPerMinute -= 1
-            bpmLabel.text = "\(beatsPerMinute - 1)"
+            bpmLabel.text = "\(beatsPerMinute)"
             sliderValue.value = Float(beatsPerMinute)
             ticking = 60 / Double(beatsPerMinute)
             if titleLabel.text == "STOP!" {
